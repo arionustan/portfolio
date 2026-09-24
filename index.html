@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Алинур Стахан — разработка сайтов и веб-приложений | Алматы</title>
+<meta name="description" content="Разработка сайтов под ключ: лендинги, корпоративные сайты, веб-приложения на Next.js и React. Быстро, с деплоем и поддержкой. Алматы, удалённо по всему миру.">
+<meta property="og:title" content="Алинур Стахан — разработка сайтов и веб-приложений">
+<meta property="og:description" content="Сайты под ключ: от макета до продакшена. Next.js, React, современный стек.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0b0f; --bg-2:#101218; --card:#14161f; --line:#232733;
+  --fg:#f2f4f8; --muted:#9aa3b2; --accent:#5b8cff; --accent-2:#7af0c4;
+  --radius:16px; --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--fg);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{padding:96px 0;position:relative}
+.eyebrow{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px
+}
+h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em;margin-bottom:16px}
+.lead{color:var(--muted);font-size:17px;max-width:620px}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:rgba(10,11,15,.78);border-bottom:1px solid var(--line)
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-weight:800;letter-spacing:-.02em;font-size:17px}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;font-size:15px;color:var(--muted)}
+.nav-links a:hover{color:var(--fg)}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;border-radius:12px;
+  padding:12px 22px;font-weight:600;font-size:15px;transition:.2s;border:1px solid transparent
+}
+.btn-primary{background:var(--accent);color:#08090d}
+.btn-primary:hover{background:#7ba3ff;transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line);color:var(--fg)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+@media(max-width:820px){.nav-links{display:none}}
+
+/* HERO */
+.hero{padding:120px 0 96px;position:relative;overflow:hidden}
+.glow{
+  position:absolute;width:760px;height:760px;border-radius:50%;
+  background:radial-gradient(circle,rgba(91,140,255,.16),transparent 62%);
+  top:-320px;right:-220px;pointer-events:none
+}
+.glow-2{
+  position:absolute;width:560px;height:560px;border-radius:50%;
+  background:radial-gradient(circle,rgba(122,240,196,.10),transparent 62%);
+  bottom:-280px;left:-200px;pointer-events:none
+}
+.status{
+  display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);
+  background:var(--bg-2);border-radius:999px;padding:7px 16px;font-size:14px;
+  color:var(--muted);margin-bottom:28px
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 4px rgba(122,240,196,.15)}
+h1{
+  font-size:clamp(38px,6.2vw,66px);font-weight:800;letter-spacing:-.03em;
+  line-height:1.08;margin-bottom:22px;max-width:15ch
+}
+.grad{background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:19px;max-width:560px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px}
+.facts{display:flex;gap:44px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:30px}
+.fact strong{display:block;font-size:26px;font-weight:800;letter-spacing:-.02em}
+.fact span{font-size:14px;color:var(--muted)}
+
+/* CARDS */
+.grid{display:grid;gap:20px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3,.g2{grid-template-columns:1fr}}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px;transition:.25s
+}
+.card:hover{border-color:#31394d;transform:translateY(-3px)}
+.card h3{font-size:19px;font-weight:700;margin-bottom:10px}
+.card p{color:var(--muted);font-size:15px}
+.ico{
+  width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
+  background:rgba(91,140,255,.12);color:var(--accent);margin-bottom:16px;font-size:20px
+}
+
+/* PROCESS */
+.steps{counter-reset:s;display:grid;gap:18px;margin-top:40px}
+.step{
+  display:flex;gap:20px;align-items:flex-start;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px
+}
+.step::before{
+  counter-increment:s;content:"0" counter(s);
+  font-weight:800;font-size:15px;color:var(--accent);
+  background:rgba(91,140,255,.12);border-radius:10px;
+  width:40px;height:40px;display:grid;place-items:center;flex-shrink:0
+}
+.step h4{font-size:17px;font-weight:700;margin-bottom:5px}
+.step p{color:var(--muted);font-size:15px}
+
+/* STACK */
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.tag{
+  border:1px solid var(--line);background:var(--bg-2);border-radius:10px;
+  padding:9px 16px;font-size:14px;font-weight:500;color:#cfd6e4
+}
+.tag.hi{border-color:rgba(91,140,255,.45);color:var(--accent);background:rgba(91,140,255,.08)}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+@media(max-width:900px){.about{grid-template-columns:1fr;gap:34px}}
+.timeline{display:grid;gap:16px}
+.ti{border-left:2px solid var(--line);padding:2px 0 2px 20px}
+.ti strong{display:block;font-size:16px}
+.ti span{font-size:14px;color:var(--muted)}
+
+/* CONTACT */
+.contact{
+  background:linear-gradient(160deg,#141a2b,#0f1118);
+  border:1px solid var(--line);border-radius:24px;padding:56px 44px;text-align:center
+}
+.contact h2{margin-bottom:12px}
+.contact .lead{margin:0 auto 32px}
+.cbtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="logo">Алинур<span>.</span></div>
+    <div class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#works">Проекты</a>
+      <a href="#process">Как работаю</a>
+      <a href="#stack">Стек</a>
+      <a href="#about">Обо мне</a>
+    </div>
+    <a class="btn btn-primary" href="#contact">Обсудить проект</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="glow"></div><div class="glow-2"></div>
+  <div class="wrap">
+    <div class="status"><span class="dot"></span> Свободен для новых проектов</div>
+    <h1>Делаю <span class="grad">сайты и веб-приложения</span> под ключ</h1>
+    <p>От первого экрана до работающего продакшена: вёрстка, логика, интеграции,
+       деплой и поддержка. Быстро — за счёт AI-ассистированной разработки.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://wa.me/77475184698">Написать в WhatsApp</a>
+      <a class="btn btn-ghost" href="#services">Посмотреть услуги</a>
+    </div>
+    <div class="facts">
+      <div class="fact"><strong>Next.js</strong><span>основной стек</span></div>
+      <div class="fact"><strong>От идеи<br>до деплоя</strong><span>полный цикл</span></div>
+      <div class="fact"><strong>Алматы</strong><span>работаю удалённо</span></div>
+      <div class="fact"><strong>B2+</strong><span>английский</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <div class="eyebrow reveal">Услуги</div>
+    <h2 class="reveal">Что я могу сделать для вас</h2>
+    <p class="lead reveal">Беру проект целиком и довожу до результата — вам не нужно
+       искать отдельно верстальщика, программиста и человека для деплоя.</p>
+    <div class="grid g3" style="margin-top:44px">
+      <div class="card reveal">
+        <div class="ico">◆</div>
+        <h3>Лендинги и сайты-визитки</h3>
+        <p>Одностраничники под рекламу и продажи: адаптив под телефоны, быстрая загрузка,
+           формы заявок, подключение аналитики и мессенджеров.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">▤</div>
+        <h3>Корпоративные сайты</h3>
+        <p>Многостраничные сайты с каталогом, блогом и страницами услуг. Удобная структура,
+           SEO-база, возможность самому редактировать контент.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">◇</div>
+        <h3>Веб-приложения</h3>
+        <p>Интерфейсы на React и Next.js: личные кабинеты, панели, работа с API,
+           авторизация, отображение и обработка данных.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">⇄</div>
+        <h3>Интеграции и автоматизация</h3>
+        <p>Подключение внешних сервисов и API, формы с отправкой в почту и мессенджеры,
+           автоматизация рутинных процессов.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">↻</div>
+        <h3>Доработка проектов</h3>
+        <p>Есть сайт, но что-то не работает или нужно добавить функции — подключусь
+           к существующему коду, поправлю и расширю.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">⚡</div>
+        <h3>Быстрые прототипы</h3>
+        <p>Нужно проверить идею — соберу рабочий прототип, который можно показать
+           инвесторам или первым пользователям, без долгой разработки.</p>
+      </div>
+    </div>
+    <p class="lead reveal" style="margin-top:30px">
+      Стоимость зависит от объёма и сроков — напишите, что нужно, и я посчитаю.
+    </p>
+  </div>
+</section>
+
+<section id="works">
+  <div class="wrap">
+    <div class="eyebrow reveal">Проекты</div>
+    <h2 class="reveal">Что уже сделано</h2>
+    <p class="lead reveal">Коммерческие проекты для реальных заказчиков. Исходный код закрыт
+       по договорённости с клиентами — показать вживую и разобрать по шагам могу на созвоне.</p>
+    <div class="grid g3" style="margin-top:44px">
+      <div class="card reveal">
+        <h3>Приём заявок через WhatsApp + панель сотрудников</h3>
+        <p>Система для IT-компании: бот принимает заявку прямо в WhatsApp по сценарию,
+           присваивает ей номер и сохраняет всю переписку клиента. Внутри — панель для
+           7 сотрудников, задачи и маршруты от руководителя, база клиентов, аналитика.
+           Подключение к WhatsApp Cloud API напрямую от Meta, без посредников и абонплаты.</p>
+        <div class="tags" style="margin-top:16px">
+          <span class="tag">Next.js</span><span class="tag">TypeScript</span>
+          <span class="tag">Turso</span><span class="tag">WhatsApp Cloud API</span>
+        </div>
+      </div>
+      <div class="card reveal">
+        <h3>Сайты с онлайн-записью — барбершоп и лаунж-бар</h3>
+        <p>Услуги и цены, запись клиента онлайн, личные аккаунты мастеров с проверкой
+           прав на сервере, уведомления о новых записях. База на Supabase с миграциями
+           и политиками доступа, авторизация через middleware, CI и деплой.</p>
+        <div class="tags" style="margin-top:16px">
+          <span class="tag">Next.js</span><span class="tag">TypeScript</span>
+          <span class="tag">Supabase</span><span class="tag">Tailwind</span>
+        </div>
+      </div>
+      <div class="card reveal">
+        <h3>Сайт студии мебели</h3>
+        <p>Многостраничный сайт с каталогом, страницами позиций и приёмом заявок.
+           Адаптив под телефоны, быстрая загрузка, форма заявки с сохранением в базу,
+           деплой на Vercel с собственным доменом.</p>
+        <div class="tags" style="margin-top:16px">
+          <span class="tag">Next.js</span><span class="tag">TypeScript</span>
+          <span class="tag">Supabase</span><span class="tag">Vercel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow reveal">Процесс</div>
+    <h2 class="reveal">Как проходит работа</h2>
+    <p class="lead reveal">Без долгих согласований и пропавших исполнителей —
+       вы видите прогресс на каждом шаге.</p>
+    <div class="steps">
+      <div class="step reveal">
+        <div><h4>Обсуждаем задачу</h4>
+        <p>Что нужно сделать, для кого, какой результат считаем успешным. Договариваемся о сроке и цене.</p></div>
+      </div>
+      <div class="step reveal">
+        <div><h4>Показываю первую версию</h4>
+        <p>Собираю рабочий прототип быстро, чтобы вы посмотрели вживую, а не на словах.</p></div>
+      </div>
+      <div class="step reveal">
+        <div><h4>Правим до результата</h4>
+        <p>Вы смотрите, присылаете комментарии — я вношу изменения, пока всё не сойдётся.</p></div>
+      </div>
+      <div class="step reveal">
+        <div><h4>Запуск и передача</h4>
+        <p>Выкладываю на хостинг, подключаю домен, передаю доступы. Дальше — поддержка, если нужна.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="eyebrow reveal">Стек</div>
+    <h2 class="reveal">С чем работаю</h2>
+    <div class="tags reveal">
+      <span class="tag hi">TypeScript</span>
+      <span class="tag hi">JavaScript</span>
+      <span class="tag hi">React</span>
+      <span class="tag hi">Next.js</span>
+      <span class="tag hi">Tailwind CSS</span>
+      <span class="tag hi">Supabase</span>
+      <span class="tag hi">PostgreSQL</span>
+      <span class="tag">Node.js</span>
+      <span class="tag">SQL / миграции</span>
+      <span class="tag">HTML5</span>
+      <span class="tag">CSS3</span>
+      <span class="tag">Git / GitHub</span>
+      <span class="tag">GitHub Actions</span>
+      <span class="tag">Vercel</span>
+      <span class="tag">REST API / вебхуки</span>
+      <span class="tag">WhatsApp Cloud API</span>
+    </div>
+    <p class="lead reveal" style="margin-top:30px">
+      <strong style="color:var(--fg)">AI-ассистированная разработка.</strong>
+      Работаю с Claude Code и Cursor — это ускоряет путь от задачи до рабочей версии.
+      Но весь код я проверяю и тестирую сам: вы получаете работающий продукт, а не сгенерированный текст.
+    </p>
+    <div class="tags reveal" style="margin-top:18px">
+      <span class="tag">Claude Code</span>
+      <span class="tag">Cursor</span>
+      <span class="tag">Промпт-инжиниринг</span>
+    </div>
+    <p class="lead reveal" style="margin-top:30px">
+      <strong style="color:var(--fg)">Изучаю сейчас:</strong>
+      React Native, автотесты (Vitest, Playwright), оптимизация производительности — стек постоянно расширяю.
+    </p>
+  </div>
+</section>
+
+<section id="about" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap about">
+    <div>
+      <div class="eyebrow reveal">Обо мне</div>
+      <h2 class="reveal">Коротко</h2>
+      <p class="lead reveal">
+        Меня зовут Алинур, я веб-разработчик из Алматы. Разрабатываю и запускаю
+        коммерческие сайты и веб-приложения на Next.js, TypeScript и Supabase —
+        проекты сданы и оплачены заказчиками.
+      </p>
+      <p class="lead reveal" style="margin-top:16px">
+        У меня техническое образование в кибербезопасности, поэтому сайты делаю
+        с оглядкой на защищённость и корректную работу, а не «лишь бы открывалось».
+        Сейчас учусь в магистратуре по программной инженерии и продолжаю расширять стек.
+      </p>
+      <p class="lead reveal" style="margin-top:16px">
+        Работаю удалённо, на связи в рабочее время, о задержках предупреждаю заранее.
+      </p>
+    </div>
+    <div class="timeline reveal">
+      <div class="ti">
+        <strong>Магистратура — Программная инженерия</strong>
+        <span>КБТУ, Алматы · в процессе</span>
+      </div>
+      <div class="ti">
+        <strong>Бакалавриат — Кибербезопасность</strong>
+        <span>Astana IT University · окончил</span>
+      </div>
+      <div class="ti">
+        <strong>Системный техник</strong>
+        <span>Министерство финансов РК · ноя 2025 — апр 2026</span>
+      </div>
+      <div class="ti">
+        <strong>Веб-разработка на фрилансе</strong>
+        <span>Коммерческие сайты на Next.js · 2025 — н. в.</span>
+      </div>
+      <div class="ti">
+        <strong>Языки</strong>
+        <span>Русский · Казахский · English B2+</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact reveal">
+      <h2>Расскажите, что нужно сделать</h2>
+      <p class="lead">Напишите пару строк о задаче — отвечу, задам уточняющие вопросы
+         и назову срок и стоимость. Консультация бесплатная.</p>
+      <div class="cbtns">
+        <a class="btn btn-primary" href="https://wa.me/77475184698">WhatsApp +7 747 518-46-98</a>
+        <a class="btn btn-ghost" href="mailto:alinur.stakhan.2005@gmail.com">alinur.stakhan.2005@gmail.com</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/alinur-stakhan-86076b25b">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Алинур Стахан — веб-разработка</span>
+    <span>Алматы, Казахстан · работаю удалённо</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+  el.style.transitionDelay = (i%6)*60 + 'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
